@@ -1,0 +1,27 @@
+
+{
+    "MyHome": {
+        "Room1": {
+            "Lamp1": {
+                "Status": "Off",
+                "Brightness": 0,
+                "Script": null
+            },
+            "Lamp2": {
+                "Status": "Off",
+                "Brightness": 0,
+                "Script": {
+                    "src": "",
+                    "1": "",
+                    "2": ""
+                }
+            },
+            "Lamp3": {},
+            "Lamp4": {}
+        },
+        "Room2": {},
+        "Room3": {},
+        "Room4": {}
+    },
+    "Timezone": ""
+}
