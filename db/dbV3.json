@@ -1,0 +1,97 @@
+{
+    "MyHome": [
+        {
+            "id": "sala1",
+            "name": "Sala",
+            "devices": [
+                {"id": "lamp1", "type": "lamp","name": "Lamp 1","brightness": 0},
+                {"id": "lamp2", "type": "lamp","name": "Lamp 2","brightness": 87}
+            ]
+        },
+        {
+            "id": "banheiro1",
+            "name": "Banheiro",
+            "devices": []
+        },
+        {
+            "id": "cozinha1",
+            "name": "Cozinha",
+            "devices": []
+        },
+        {
+            "id": "quarto1",
+            "name": "Quarto 1",
+            "devices": [
+                {"id": "lamp3", "type": "lamp","name": "Hall Lamp","brightness": 42},
+                {"id": "sensor1", "type": "sensor","name": "Proximity Sensor","brightness": null}
+            ]
+        },
+        {
+            "id": "quarto2",
+            "name": "Quarto 2",
+            "devices": []
+        }
+    ],
+    "Scripts": [
+		{
+			"id": "evening_light",
+			"name": "Evening Light",
+			"is_active": true,
+
+			"source": {
+				"type": "schedule",
+				"cron": "0 18 * * *"
+			},
+
+			"actuator": {
+				"room": "Room1",
+				"device": "Lamp2"
+			},
+
+			"action": {
+				"operation": "set_brightness",
+				"params": {
+					"level": 75
+				}
+			}
+		},
+
+		{
+			"id": "hallway_motion_on",
+			"name": "Hallway Motion Light",
+			"is_active": true,
+
+			"source": {
+				"type": "sensor",
+				"room": "Room2",
+				"device": "Sensor1",
+				"sensor_type": "proximity",
+				"threshold": 30,
+				"compare": "gt"
+			},
+
+			"actuator": {
+				"room": "Room2",
+				"device": "Lamp1"
+			},
+
+			"action": {
+				"operation": "set_status",
+				"params": {
+					"value": true
+				}
+			}
+		}
+	],
+
+	"Timezone": "America/Sao_Paulo"
+}
+
+
+
+
+
+
+
+
+
