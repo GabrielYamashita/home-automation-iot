@@ -1,7 +1,8 @@
 
 import streamlit as st
-from FloorPlan import FloorPlan
+
 from Sidebar import Sidebar
+from FloorPlan import FloorPlan
 
 
 class Page():

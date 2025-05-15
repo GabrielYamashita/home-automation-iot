@@ -29,7 +29,7 @@ class SliderWidget:
         # Print the debug information if debug mode is enabled
         if self.debug:
             print(f"[DEBUG] Slider value: {slider_value}")
-        
+
         return slider_value
 
 

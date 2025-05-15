@@ -3,6 +3,7 @@
 import streamlit as st
 
 from main import readDatabase
+from Slider import SliderWidget
 
 
 class MyRoom:
@@ -11,7 +12,15 @@ class MyRoom:
         self.devices = data["devices"]
 
 
-    def render(self):
+    # def renderSlider(self, slider):
+    #     slider(
+    #         label="Select a Value", 
+    #         min_value=0, max_value=100, default_value=75, 
+    #         session_key="slider1",
+    #     )
+
+
+    def render(self, slider):
         # Título da Página
         if self.title[-1] == "a":
             st.title(f"Minha {self.title}:")
@@ -40,4 +49,11 @@ if __name__ == "__main__":
     room = data["MyHome"][3]
 
     sala = MyRoom(room["name"], room)
-    sala.render()
+
+    slider = SliderWidget(
+        label="Select a Value", 
+        min_value=0, max_value=100, default_value=75, 
+        session_key="slider1",
+    )
+
+    sala.render(slider)

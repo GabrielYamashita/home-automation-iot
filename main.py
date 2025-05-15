@@ -32,7 +32,7 @@ def readDatabase():
 
 if __name__ == "__main__":
     data = readDatabase()
-    # print(data)
+    print(data)
 
 
     rooms = []

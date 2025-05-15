@@ -5,7 +5,7 @@
             "name": "Sala",
             "devices": [
                 {"id": "lamp1", "type": "lamp","name": "Lamp 1","brightness": 0},
-                {"id": "lamp2", "type": "lamp","name": "Lamp 2","brightness": 87}
+                {"id": "lamp2", "type": "lamp","name": "Lamp 2","brightness": 40}
             ]
         },
         {
@@ -76,9 +76,9 @@
 			},
 
 			"action": {
-				"operation": "set_status",
+				"operation": "set_brightness",
 				"params": {
-					"value": true
+					"brightness": 100
 				}
 			}
 		}
