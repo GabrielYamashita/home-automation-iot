@@ -23,6 +23,9 @@
             "name": "Quarto 1",
             "devices": [
                 {"id": "lamp3", "type": "lamp","name": "Hall Lamp","brightness": 42},
+				{"id": "lamp4", "type": "lamp","name": "Desk Lamp","brightness": 43},
+				{"id": "lamp5", "type": "lamp","name": "Bedside Lamp","brightness": 44},
+				{"id": "lamp6", "type": "lamp","name": "Ceiling Lamp","brightness": 45},
                 {"id": "sensor1", "type": "sensor","name": "Proximity Sensor","brightness": null}
             ]
         },

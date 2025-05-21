@@ -1,22 +1,22 @@
 
 import streamlit as st
 
-from Sidebar import Sidebar
-from FloorPlan import FloorPlan
-
-
 class Page():
-    def __init__(self, main, sidebar):
+    def __init__(self, body, sidebar):
+        self.body = body
         self.sidebar = sidebar
-        self.main = main
         # self.title = title
 
     def render(self):
-        self.sidebar.render()
-        self.main.render()
+        self.body.render()
+        selected = self.sidebar.render()
+        return selected
 
 
 if __name__ == "__main__":
+    from Sidebar import Sidebar
+    from FloorPlan import FloorPlan
+
     MyRoom = FloorPlan("My Home", 6, 6)
     MyRoom.add_room(0, 5, 0, 5)
     MyRoom.add_room(2, 3, 0, 1)
@@ -24,11 +24,14 @@ if __name__ == "__main__":
     MyRoom.add_room(4, 5, 0, 2)
     MyRoom.add_room(4, 5, 3, 5)
 
-    Sidebar = Sidebar(
+    sidebar = Sidebar(
         title="My Home",
-        components=["Component 1", "Component 2", "Component 3"],
+        components=["Room 1", "Room 2", "Room 3"],
         debug=True
     )
 
-    mainPage = Page(MyRoom, Sidebar)
-    mainPage.render()
+
+    mainPage = Page(MyRoom, sidebar)
+    currRoom = mainPage.render()
+
+    print(currRoom)

@@ -8,52 +8,36 @@ class Sidebar():
     def __init__(self, title, components, debug=False):
         self.title = title
         self.components = components
+        self.selected = "Home"
 
         self.debug = debug
 
     def render(self):
-        # Create a sidebar with a title
-        
         with st.sidebar:
-            with st.container(border=True):
-                col1, col2 = st.columns([0.7, 0.3], vertical_alignment="center")
-                col1.title(self.title)
-
-            # selected = option_menu("Main Menu", ["Home", 'Settings'], 
-            #     icons=['house', 'gear'], menu_icon="cast", default_index=1)
-            # selected
+            selected = option_menu(
+                "My Home", 
+                ["Home"] + self.components + ["Settings"], 
+                icons=["house"] + ["" for _ in self.components] + ["gear"], 
+                menu_icon="house", 
+                default_index=0
+            )
+        
+        self.selected = selected
+        return selected
 
             # Add Space:
-            st.container(height=250, border=False)
+            # st.container(height=250, border=False)
 
             # Add a checkbox to toggle debug mode
-            debug_mode = st.sidebar.checkbox("Enable Debug Mode", value=self.debug)
+            # debug_mode = st.sidebar.checkbox("Enable Debug Mode", value=self.debug)
 
 
 if __name__ == "__main__":
 
     sidebar = Sidebar(
         title="My Home",
-        components=["Component 1", "Component 2", "Component 3"],
+        components=["Room 1", "Room 2", "Room 3"],
         debug=True
     )
-    sidebar.render()
-
-    # st.title("Sidebar")
-
-
-    # st.container(height=250, border=False)
-    # add_selectbox = st.sidebar.selectbox(
-    #     "How would you like to be contacted?",
-    #     ("Email", "Home phone", "Mobile phone")
-    # )
-
-    # # Using "with" notation
-    # with st.sidebar:
-    #     add_radio = st.radio(
-    #         "Choose a shipping method",
-    #         ("Standard (5-15 days)", "Express (2-5 days)")
-    #     )
-
-
-    # debug_mode = st.sidebar.checkbox("Enable Debug Mode", value=False)
+    selected = sidebar.render()
+    print(selected)
